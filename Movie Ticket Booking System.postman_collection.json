@@ -1,0 +1,321 @@
+{
+	"info": {
+		"_postman_id": "d6593bda-4216-49a7-a286-279f31a5ec77",
+		"name": "Movie Ticket Booking System",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7110933"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Sachith Ariyathilaka\",\n    \"position\": \"Admin\",\n    \"username\": \"admin\",\n    \"password\": \"admin\",\n    \"mobile\": \"0702108735\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/movie-booking-booking-system/api/v1/authentication/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"movie-booking-booking-system",
+								"api",
+								"v1",
+								"authentication",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"user\",\n    \"password\": \"user\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/movie-booking-booking-system/api/v1/authentication/login?position=User",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"movie-booking-booking-system",
+								"api",
+								"v1",
+								"authentication",
+								"login"
+							],
+							"query": [
+								{
+									"key": "position",
+									"value": "User"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjExNzAwMTE0LCJpYXQiOjE2MTE2ODIxMTR9.GgBxSMiijyXdOvl9s0ZLTuxPMpZlphhbBXt34_b0V2l82clkh8hEVuJMfgQEr5FURjxI0jok2BB1MWL78fyrGg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"ZOOM\",\n    \"date\": \"2021-02-01\",\n    \"price\": \"500\",\n    \"showTime\": \"06.30 PM\",\n    \"owner\": \"India\",\n    \"status\": true,\n    \"availableTickets\": 25\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/movie-booking-booking-system/api/v1/movie/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"movie-booking-booking-system",
+								"api",
+								"v1",
+								"movie",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjExNzAwMTE0LCJpYXQiOjE2MTE2ODIxMTR9.GgBxSMiijyXdOvl9s0ZLTuxPMpZlphhbBXt34_b0V2l82clkh8hEVuJMfgQEr5FURjxI0jok2BB1MWL78fyrGg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "text"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/movie-booking-booking-system/api/v1/movie/search?name=KGF",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"movie-booking-booking-system",
+								"api",
+								"v1",
+								"movie",
+								"search"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "KGF"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjExNzAwMTE0LCJpYXQiOjE2MTE2ODIxMTR9.GgBxSMiijyXdOvl9s0ZLTuxPMpZlphhbBXt34_b0V2l82clkh8hEVuJMfgQEr5FURjxI0jok2BB1MWL78fyrGg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "4"
+						},
+						"url": {
+							"raw": "http://localhost:8090/movie-booking-booking-system/api/v1/delete/delete&id=5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"movie-booking-booking-system",
+								"api",
+								"v1",
+								"delete",
+								"delete&id=5"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjExNzAwMTE0LCJpYXQiOjE2MTE2ODIxMTR9.GgBxSMiijyXdOvl9s0ZLTuxPMpZlphhbBXt34_b0V2l82clkh8hEVuJMfgQEr5FURjxI0jok2BB1MWL78fyrGg",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"movie\" : \"KGF\",\n    \"date\" : \"2020-02-01\",\n    \"ticketCount\": 10,\n    \"showTime\": \"06.30 PM\",\n    \"paymentStatus\": false,\n    \"userId\": 3\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8090/movie-booking-booking-system/api/v1/booking/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"movie-booking-booking-system",
+								"api",
+								"v1",
+								"booking",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjExNzAwMTE0LCJpYXQiOjE2MTE2ODIxMTR9.GgBxSMiijyXdOvl9s0ZLTuxPMpZlphhbBXt34_b0V2l82clkh8hEVuJMfgQEr5FURjxI0jok2BB1MWL78fyrGg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/movie-booking-booking-system/api/v1/booking/search?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"movie-booking-booking-system",
+								"api",
+								"v1",
+								"booking",
+								"search"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ1c2VyIiwiZXhwIjoxNjExNzAwMTE0LCJpYXQiOjE2MTE2ODIxMTR9.GgBxSMiijyXdOvl9s0ZLTuxPMpZlphhbBXt34_b0V2l82clkh8hEVuJMfgQEr5FURjxI0jok2BB1MWL78fyrGg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8090/movie-booking-booking-system/api/v1/booking/cancel?id=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8090",
+							"path": [
+								"movie-booking-booking-system",
+								"api",
+								"v1",
+								"booking",
+								"cancel"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<!-- Parent information -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.3.1.RELEASE</version>
+		<relativePath/>
+	</parent>
+
+	<!-- Core information -->
+	<groupId>io.github.sachithariyathilaka</groupId>
+	<artifactId>movie-booking-booking-system</artifactId>
+	<version>1.0.0</version>
+
+	<!-- Packaging information -->
+	<packaging>jar</packaging>
+
+	<!-- Project information -->
+	<name>Movie Ticket Booking System</name>
+	<description>Spring boot project for movie booking booking system</description>
+	<url>https://github.com/sachithariyathilaka/movie-booking-booking-system-backend</url>
+	<inceptionYear>2024</inceptionYear>
+
+	<!-- License information -->
+	<licenses>
+
+		<license>
+			<name>MIT Licence</name>
+		</license>
+
+	</licenses>
+
+	<!-- Organization information -->
+	<organization>
+		<name>ByteGen Technologies</name>
+		<url>https://github.com/sachithariyathilaka</url>
+	</organization>
+
+	<!-- Developer information -->
+	<developers>
+
+		<developer>
+			<id>1</id>
+			<name>Sachith Ariyathilaka</name>
+			<organization>ByteGen Technologies</organization>
+			<organizationUrl>https://github.com/sachithariyathilaka</organizationUrl>
+			<email>sachith.vidu@yahoo.com</email>
+			<roles>
+				<role>Chairman</role>
+			</roles>
+			<timezone>UTC +5:30</timezone>
+		</developer>
+
+	</developers>
+
+	<!-- Property information -->
+	<properties>
+
+		<!-- Project properties -->
+		<java.version>17</java.version>
+
+		<!-- Dependency properties -->
+		<mysql.version>6.0.3</mysql.version>
+		<jwt.version>0.9.1</jwt.version>
+		<jaxb.api.version>2.3.1</jaxb.api.version>
+		<jwt.helper.version>1.0.1</jwt.helper.version>
+
+	</properties>
+
+	<!-- Dependency information -->
+	<dependencies>
+
+		<!-- Starter dependencies -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- MySQL dependency -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+
+		<!-- jwt dependency -->
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jwt.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>${jaxb.api.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.github.sachithariyathilaka</groupId>
+			<artifactId>jwt-helper</artifactId>
+			<version>${jwt.helper.version}</version>
+		</dependency>
+
+		<!-- Lombok dependency -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
+	</dependencies>
+
+	<!-- Profile information -->
+	<profiles>
+
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+
+		<profile>
+			<id>development</id>
+		</profile>
+
+		<profile>
+			<id>qa</id>
+		</profile>
+
+		<profile>
+			<id>uat</id>
+		</profile>
+
+		<profile>
+			<id>production</id>
+		</profile>
+
+	</profiles>
+
+	<!-- Repository information -->
+	<repositories>
+
+		<repository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+	</repositories>
+
+	<!-- Plugin repository information -->
+	<pluginRepositories>
+
+		<pluginRepository>
+			<id>central</id>
+			<name>Central Repository</name>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<layout>default</layout>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+			<releases>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</pluginRepository>
+
+	</pluginRepositories>
+
+	<!-- Build information -->
+	<build>
+
+		<!-- General information -->
+		<directory>${project.basedir}/target</directory>
+		<outputDirectory>${project.build.directory}/classes</outputDirectory>
+		<sourceDirectory>${project.basedir}/src/main/java</sourceDirectory>
+		<finalName>${project.artifactId}-${project.version}</finalName>
+
+		<!-- Resource information -->
+		<resources>
+
+			<resource>
+				<directory>${basedir}/src/main/resources</directory>
+			</resource>
+
+		</resources>
+
+		<!-- Plugin information -->
+		<plugins>
+
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<!-- SCM information -->
+	<scm>
+		<url>https://github.com/sachithariyathilaka/movie-booking-booking-system-backend</url>
+		<connection>scm:git:https://github.com/sachithariyathilaka/movie-booking-booking-system-backend.git</connection>
+		<developerConnection>scm:git:git@github.com:sachithariyathilaka/movie-booking-booking-system-backend.git</developerConnection>
+	</scm>
+
+	<!-- Reporting information -->
+	<reporting>
+		<outputDirectory>${project.build.directory}/site</outputDirectory>
+	</reporting>
+
+</project>
